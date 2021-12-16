@@ -11,6 +11,7 @@ type User {
 type Query {
   getAllUsers: [User!]!
   getUserById(id: String!): User!
+  getUserByEmail(email: String!): User!
 }
 
 type Mutation {
@@ -22,9 +23,11 @@ type Mutation {
 input UpdateUserInput {
   name: String
   email: String
+  password: String!
 }
 
 input CreateUserInput {
   name: String!
   email: String!
+  password: String!
 }

@@ -7,7 +7,7 @@ import { UserService } from './user.service'
 // Resolver é o cara que vai ter as entradas e saídas da aplicação
 @Resolver('User')
 export class UserResolver {
-    constructor(private _userService: UserService) {}
+    constructor(private _userService: UserService) { }
 
     @Query(() => [User])
     async getAllUsers(): Promise<User[]> {
@@ -18,6 +18,12 @@ export class UserResolver {
     @Query(() => User)
     async getUserById(@Args('id') id: string): Promise<User> {
         const user = await this._userService.findUserById(id)
+        return user
+    }
+
+    @Query(() => User)
+    async getUserByEmail(@Args('email') email: string): Promise<User> {
+        const user = await this._userService.findUserByEmail(email)
         return user
     }
 

@@ -10,7 +10,7 @@ export class UserService {
     constructor(
         @InjectRepository(User) //Ta dizendo que o papel de criar a instancia é do repositório
         private _userRepository: Repository<User>
-    ) {}
+    ) { }
 
     async findAllUsers(): Promise<User[]> {
         const users = await this._userRepository.find()
@@ -19,6 +19,14 @@ export class UserService {
 
     async findUserById(id: string): Promise<User> {
         const user = await this._userRepository.findOne(id)
+        if (!user) {
+            throw new InternalServerErrorException('User not found')
+        }
+        return user
+    }
+
+    async findUserByEmail(email: string): Promise<User> {
+        const user = await this._userRepository.findOne({ where: { email } })
         if (!user) {
             throw new InternalServerErrorException('User not found')
         }
