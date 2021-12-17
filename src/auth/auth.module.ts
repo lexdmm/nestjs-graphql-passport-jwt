@@ -5,6 +5,7 @@ import { UserService } from '../user/user.service'
 import { User } from '../user/user.entity'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { JwtModule } from '@nestjs/jwt'
+import { JwtStrategy } from './jwt.strategy'
 
 @Module({
     imports: [
@@ -13,11 +14,11 @@ import { JwtModule } from '@nestjs/jwt'
             useFactory: () => ({
                 secret: process.env.JWT_SECRET,
                 signOptions: {
-                    expiresIn: '30s'
+                    expiresIn: '120s'
                 }
             })
         })
     ],
-    providers: [AuthService, AuthResolver, UserService]
+    providers: [AuthService, AuthResolver, UserService, JwtStrategy]
 })
-export class AuthModule {}
+export class AuthModule { }
