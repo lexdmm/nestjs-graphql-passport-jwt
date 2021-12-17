@@ -4,7 +4,7 @@
 
 ## Description
 
-Using JWT - Json Web Token with Typescript NestJS.
+Using JWT - Json Web Token with Typescript NestJS and GraphQL.
 
 ## Prerequisites to run
 
