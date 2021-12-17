@@ -113,7 +113,7 @@ In https://jwt.io/, paste it into the encoded frame to see what each part of the
 Note that an Invalid Signature will occur.
 ![Captura de tela 2021-12-17 110244](https://user-images.githubusercontent.com/66276069/146563967-8503dfa0-cacf-4cf7-9584-bddf00e99b0e.png)
 
-This happens because it is missing the key that was configured in the .env
+This happens because it is missing the key that was configured in the JWT_SECRET from **.env** file
 Just inform as in the example below, into verify signature.
 
 ![Captura de tela 2021-12-17 110343](https://user-images.githubusercontent.com/66276069/146564133-8a2f3f47-d1a8-4355-a4f8-9bb88b8deff6.png)
