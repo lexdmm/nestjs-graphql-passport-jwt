@@ -9,7 +9,7 @@ import { UserService } from './user.service'
 // Resolver é o cara que vai ter as entradas e saídas da aplicação
 @Resolver('User')
 export class UserResolver {
-    constructor(private _userService: UserService) { }
+    constructor(private _userService: UserService) {}
 
     @UseGuards(GqlAuthGuard)
     @Query(() => [User])
