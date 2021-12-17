@@ -6,5 +6,6 @@ export class AuthType {
     @Field(() => User)
     user: User
 
+    @Field()
     token: string
 }
