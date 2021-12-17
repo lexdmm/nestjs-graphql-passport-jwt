@@ -127,3 +127,28 @@ Guards are like route protectors, so only users who are logged into the applicat
 As GraphQL is used, to implement it has to follow the recommendations informed in the documentation in the **GraphQL** topic, just as it is in the code.
 [GraphQL Authentication JWT-functionality](https://docs.nestjs.com/security/authentication#jwt-functionality)
 
+Decorator @UseGuards allows the route to be accessible with authentication.
+See the example at **user.resolver.ts**
+
+```typescript
+@UseGuards(GqlAuthGuard)
+@Query(() => User)
+async getUserById(@Args('id') id: string): Promise<User> {
+	const user = await this._userService.findUserById(id)
+	return user
+}
+```
+
+Running the login route in graphQL and copy the token.
+
+Put the token in the graphQL playgroud Header tab, as the authentication is bearer type, do as below and paste the token after Bearer.
+```typescript
+{
+  "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkrDs2NhIEJhY2FuaW5oYSIsInN1YiI6IjViODM0NTZjLWU1NzUtNGI4NC04ZGY2LThhYjdkNGUyMzk2MCIsImlhdCI6MTYzOTc2ODA5NywiZXhwIjoxNjM5NzY4MjE3fQ.5uN4wjOMbtbAHYlicE3_DySQtlhImCc4gFQzUfWnq4I"
+}
+```
+
+Here in the example the token expires every two minutes, to change it, do it in auth.module.ts and change the time
+```typescript
+expiresIn: '120s'
+```
