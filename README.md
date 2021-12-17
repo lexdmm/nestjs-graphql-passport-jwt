@@ -5,6 +5,8 @@
 ## Description
 
 Using JWT - Json Web Token with Typescript NestJS and GraphQL.
+![NestJS](https://img.shields.io/badge/nestjs-%23E0234E.svg?style=for-the-badge&logo=nestjs&logoColor=white)
+![GraphQL](https://img.shields.io/badge/-GraphQL-E10098?style=for-the-badge&logo=graphql&logoColor=white)
 
 ## Prerequisites to run
 
@@ -33,13 +35,12 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Put in your browser
-http://localhost:3000/graphql
+Put in your browser: http://localhost:3000/graphql
 
-## NestJS + JWT
+### NestJS + JWT
 The Token is divided into three parts. Every part of it can be seen here https://jwt.io/. In the documentation each part is separated by color for ease of understanding.
 
-For implementation with NestJS, check the documentation: https://docs.nestjs.com/security/authentication
+For implementation with NestJS, check the documentation: [NestJS Authentication](https://docs.nestjs.com/security/authentication)
 All these developments were based on her.
 
 As I used the JWT, it was not necessary to install the lib **passport-local** as shown in the NestJS documentation, I just used the **passport** dependency.
@@ -47,7 +48,7 @@ As I used the JWT, it was not necessary to install the lib **passport-local** as
 $ npm install --save @nestjs/passport passport
 ```
 
-NestJS documentation using JWT can be seen here https://docs.nestjs.com/security/authentication#jwt-functionality
+NestJS documentation using JWT can be seen here [GraphQL Authentication JWT-functionality](https://docs.nestjs.com/security/authentication#jwt-functionality)
 In this case, use the dependencies: 
 ```bash
 $ npm install --save @nestjs/jwt passport-jwt
@@ -118,4 +119,11 @@ Just inform as in the example below, into verify signature.
 
 ![Captura de tela 2021-12-17 110343](https://user-images.githubusercontent.com/66276069/146564133-8a2f3f47-d1a8-4355-a4f8-9bb88b8deff6.png)
 
+###Guards
+
+Then create guards to protect the routes.
+Guards are like route protectors, so only users who are logged into the application will be able to access them, because the routes will not be open.
+
+As GraphQL is used, to implement it has to follow the recommendations informed in the documentation in the **GraphQL** topic, just as it is in the code.
+[GraphQL Authentication JWT-functionality](https://docs.nestjs.com/security/authentication#jwt-functionality)
 
