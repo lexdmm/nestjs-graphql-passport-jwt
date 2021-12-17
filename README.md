@@ -140,13 +140,18 @@ async getUserById(@Args('id') id: string): Promise<User> {
 ```
 
 Running the login route in graphQL and copy the token.
+![Captura de tela 2021-12-17 160939](https://user-images.githubusercontent.com/66276069/146597942-d13c2e51-1fbc-4b2e-bbe7-75701f899c5e.png)
 
-Put the token in the graphQL playgroud Header tab, as the authentication is bearer type, do as below and paste the token after Bearer.
+Put the token in the graphQL playgroud **HTTP Header** tab, as the authentication is bearer type, do as below and paste the token after Bearer into some route.
 ```typescript
 {
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkrDs2NhIEJhY2FuaW5oYSIsInN1YiI6IjViODM0NTZjLWU1NzUtNGI4NC04ZGY2LThhYjdkNGUyMzk2MCIsImlhdCI6MTYzOTc2ODA5NywiZXhwIjoxNjM5NzY4MjE3fQ.5uN4wjOMbtbAHYlicE3_DySQtlhImCc4gFQzUfWnq4I"
 }
 ```
+
+Example
+![Captura de tela 2021-12-17 163516](https://user-images.githubusercontent.com/66276069/146598511-fa36067e-e4c4-449c-8e76-60397cf4f34d.png)
+
 
 Here in the example the token expires every two minutes, to change it, do it in auth.module.ts and change the time
 ```typescript
