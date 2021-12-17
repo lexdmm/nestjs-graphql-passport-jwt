@@ -88,7 +88,7 @@ JwtModule.registerAsync({
 })
 ```
 
-Use the token that returns from the mutation "login" in graphql.
+Use the token that returns from the mutation "login" in graphql, field token.
 ```javascript
 mutation{
   login (
@@ -108,4 +108,6 @@ mutation{
 }
 ```
 
-Paste it into the encoded frame of ![JWT.io](https://jwt.io/) to see what each part of the token looks like. 
+In https://jwt.io/, paste it into the encoded frame to see what each part of the token looks like. 
+
+Note that an Invalid Signature will occur.
